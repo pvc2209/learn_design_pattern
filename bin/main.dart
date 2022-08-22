@@ -1,3 +1,4 @@
+import 'decorator.dart';
 import 'strategy.dart';
 
 void demoStrategy() {
@@ -8,6 +9,16 @@ void demoStrategy() {
   player.attack();
 }
 
+void demoDecorator() {
+  Notifier stack = EmailNotifier();
+  stack = SMSNotifier(stack);
+  stack = FacebookNotifier(stack);
+
+  stack.send("Hello World");
+}
+
 void main() {
-  demoStrategy();
+  // demoStrategy();
+
+  demoDecorator();
 }
