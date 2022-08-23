@@ -9,16 +9,30 @@ void demoStrategy() {
   player.attack();
 }
 
-void demoDecorator() {
+void demoDecorator({
+  required String message,
+  required bool smsEnabled,
+  required bool facebookEnabled,
+}) {
   Notifier stack = EmailNotifier();
-  stack = SMSNotifier(stack);
-  stack = FacebookNotifier(stack);
 
-  stack.send("Hello World");
+  if (smsEnabled) {
+    stack = SMSNotifier(stack);
+  }
+
+  if (facebookEnabled) {
+    stack = FacebookNotifier(stack);
+  }
+
+  stack.send(message);
 }
 
 void main() {
   // demoStrategy();
 
-  demoDecorator();
+  demoDecorator(
+    message: 'This is test message...',
+    smsEnabled: false,
+    facebookEnabled: true,
+  );
 }
