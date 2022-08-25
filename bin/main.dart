@@ -10,6 +10,8 @@ import 'factory_method/factory/ianimal_factory.dart';
 import 'factory_method/factory/random_animal_factory.dart';
 import 'factory_method_2/factory/application.dart';
 import 'factory_method_2/factory/my_application.dart';
+import 'observer/current_condition_display.dart';
+import 'observer/weather_data.dart';
 import 'strategy.dart';
 
 void demoStrategy() {
@@ -86,6 +88,18 @@ void demoAbstractFactory() {
   painter.pain();
 }
 
+void demoObserver() {
+  WeatherData weatherData = WeatherData();
+  final currentConditionsDisplay =
+      CurrentConditionsDisplay(weatherData: weatherData);
+  // final statisticsDisplay = StatisticsDisplay(weatherData: weatherData);
+  // final forecastDisplay = ForecastDisplay(weatherData: weatherData);
+
+  weatherData.setMeasurements(80, 65, 30.4);
+  weatherData.setMeasurements(82, 70, 29.2);
+  weatherData.setMeasurements(78, 90, 29.2);
+}
+
 void main() {
   // demoStrategy();
 
@@ -99,5 +113,7 @@ void main() {
 
   // demoFactoryMethod2();
 
-  demoAbstractFactory();
+  // demoAbstractFactory();
+
+  demoObserver();
 }
