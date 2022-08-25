@@ -1,5 +1,9 @@
 import 'dart:math';
 
+import 'abstract_factory/app/painter.dart';
+import 'abstract_factory/factory/gui_factory.dart';
+import 'abstract_factory/factory/macos_factory.dart';
+import 'abstract_factory/factory/window_factory.dart';
 import 'decorator.dart';
 import 'factory_method/factory/basic_animal_factory.dart';
 import 'factory_method/factory/ianimal_factory.dart';
@@ -64,6 +68,24 @@ void demoFactoryMethod2() {
   application.newDocument(userChoice);
 }
 
+void demoAbstractFactory() {
+  Painter painter;
+  GUIFactory factory;
+
+  // Giả sử có 1 hàm check để xác định đang ở Windows hay không
+  String osName = "windows";
+
+  if (osName == "windows") {
+    factory = WindowFactory();
+    painter = Painter(factory);
+  } else {
+    factory = MacOsFactory();
+    painter = Painter(factory);
+  }
+
+  painter.pain();
+}
+
 void main() {
   // demoStrategy();
 
@@ -75,5 +97,7 @@ void main() {
 
   // demoFactoryMethod();
 
-  demoFactoryMethod2();
+  // demoFactoryMethod2();
+
+  demoAbstractFactory();
 }
