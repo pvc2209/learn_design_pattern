@@ -4,7 +4,7 @@ import 'abstract_factory/app/painter.dart';
 import 'abstract_factory/factory/gui_factory.dart';
 import 'abstract_factory/factory/macos_factory.dart';
 import 'abstract_factory/factory/window_factory.dart';
-import 'decorator.dart';
+import 'decorator/decorator.dart';
 import 'factory_method/factory/basic_animal_factory.dart';
 import 'factory_method/factory/ianimal_factory.dart';
 import 'factory_method/factory/random_animal_factory.dart';
@@ -12,7 +12,7 @@ import 'factory_method_2/factory/application.dart';
 import 'factory_method_2/factory/my_application.dart';
 import 'observer/current_condition_display.dart';
 import 'observer/weather_data.dart';
-import 'strategy.dart';
+import 'strategy/strategy.dart';
 
 void demoStrategy() {
   final player = Player(weapon: Bow());
